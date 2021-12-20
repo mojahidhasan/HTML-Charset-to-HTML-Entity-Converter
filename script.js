@@ -45,6 +45,9 @@ window.onload = function(){
 inputField.onkeyup = function(){
     encode();
 }
+inputField.onkeydown = function(){
+    encode();
+}
 
 inputField.onfocus = function(){
     btn.setAttribute('value', 'Copy Result');
