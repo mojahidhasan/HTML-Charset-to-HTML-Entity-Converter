@@ -1,49 +1,61 @@
-function encode() {
-    var inputVal = document.getElementById('input').value; //it gets inputed values
-    var output = ''; // it gathers all of the encoded text and modifies it
-    var inputValIndexNo = 0; // it is the index no. of inputed values
-    var result = document.getElementById('output'); // it gets encoded format from output variable and shows 
+//global variables
+const inputField = document.getElementById('input');
+const outputField = document.getElementById('output');
 
-    //encoding process started here and it is MAIN CODE
-    for (var i = 1; i <= inputVal.length; i++) {
-        output += '&#' + inputVal.charCodeAt(inputValIndexNo) + ';';
+//encoding
+function encode() {
+    const inputField = document.getElementById('input').value;
+    let output = '';
+    let inputValIndexNo = 0;
+
+    //converting
+    for (let i = 1; i <= inputField.length; i++) {
+        output += '&#' + inputField.charCodeAt(inputValIndexNo) + ';';
         inputValIndexNo++;
     }
-    //encoding process ended here
 
-    result.innerText = output; // it has showed encoded text in web page
+    outputField.innerText = output;
 }
 
-
-//this function for copying text
-function copyResult() {
-    var getOutput = document.getElementById('output');
+//copy text
+function copyText() {
+    const getOutput = document.getElementById('output');
 
     getOutput.select();
     getOutput.setSelectionRange(0, 99999);
     document.execCommand('copy');
 }
+/**********/
 
-var btn = document.getElementById('btn');
-
-btn.onclick = function () {
-    copyResult();
-    changeBtnVal();
-};
 
 function changeBtnVal() {
-    
     if (btn.value == "Copy Result") {
         btn.setAttribute('value', 'Copied!');
     }
 }
 
-function focus() {
-    var focus = document.getElementById('input');
+//event listeners
+const btn = document.getElementById('btn'); //global variable
+const btnClear = document.getElementById('btn-clear'); //global variable
 
-    focus.onfocus = function () {
-        btn.setAttribute('value', 'Copy Result');
-    }
+window.onload = function(){
+    encode();
 }
-setInterval(focus, 0);
-setInterval(encode, 0);
+
+inputField.onkeyup = function(){
+    encode();
+}
+
+inputField.onfocus = function(){
+    btn.setAttribute('value', 'Copy Result');
+}
+
+//clear input field
+btnClear.onclick = function(){
+    inputField.value = '';
+}
+
+btn.onclick = function () {
+    copyText();
+    changeBtnVal();
+};

@@ -6,38 +6,41 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 
-    <title>HTML Charset to HTML Entity converter</title>
+    <title>HTML Entity Encoder</title>
 </head>
 
 <body>
     <noscript>
-        <h2>Warning</h2>
-        <p>This project's main thing is JavaScript. Without JavaScript this project is meaningless.</p>
-        <p>Looks like Javascript is off in your browser or isn't supported to your browser.</p>
-        <p>If JavaScript is off in your browser, go to your browser setting and <b>ALLOW JAVASCRIPT</b> in your browser.
-        </p>
+        <div>
+            <h2>Something went wrong</h2>
+            <p>Looks like Javascript is <b>turned off</b> in your browser or isn't <b>supported</b> in your browser.</p>
+        </div>
     </noscript>
+
+    <h1>HTML Entity Encoder</h1>
+
+    <!--input area-->
     <div>
         <h3>Enter Your Text Here</h3>
-        <div>
+        <div id="input-block">
+            <button type="reset" id="btn-clear" class="btn">clear</button>
             <label for="input">
                 <textarea id="input" cols="100" rows="10" placeholder="Enter Your Text"></textarea>
             </label>
-            <!-- <input type="button" class="btn" value="Encode" onclick="encode()"> -->
         </div>
 
     </div>
+
+    <!--output area-->
     <div>
         <h3>Result</h3>
         <div>
             <textarea id="output" readonly></textarea>
             <input type="button" id="btn" class="btn" value="Copy Result">
         </div>
-
     </div>
-
-    <script src="script.js"></script>
 </body>
 
 </html>
