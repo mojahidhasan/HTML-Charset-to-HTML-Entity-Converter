@@ -4,6 +4,6 @@ My simple Javascript project made at my very beginning of my web journey when I 
 
 See live [preview](https://mojahidhasan.github.io/HTML-Entity-Encoder/)
 
-TODO:
+**TODO**:
 
 - Adding named entity instead of number (e.g: `&lt;` instead of `&#60;` for "<"(less than) character)
